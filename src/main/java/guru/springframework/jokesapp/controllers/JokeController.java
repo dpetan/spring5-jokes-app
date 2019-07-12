@@ -1,4 +1,4 @@
-package guru.springframework.jokesapp.controller;
+package guru.springframework.jokesapp.controllers;
 
 import guru.springframework.jokesapp.services.JokeService;
 import org.springframework.stereotype.Controller;
@@ -6,16 +6,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class Jokes {
+public class JokeController {
 
     private JokeService jokeService;
 
-    public Jokes(JokeService jokeService) {
+    public JokeController(JokeService jokeService) {
         this.jokeService = jokeService;
     }
 
     @RequestMapping(value = { "/", ""})
-    public String getJoke(Model model) {
+    public String showJoke(Model model) {
 
         model.addAttribute("joke", jokeService.getRandomQuote());
 
